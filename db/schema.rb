@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030194153) do
+ActiveRecord::Schema.define(version: 20141030204504) do
 
   create_table "airports", force: true do |t|
     t.string   "ident"
-    t.string   "type"
+    t.string   "airport_type"
     t.string   "name"
     t.float    "latitude_deg"
     t.float    "longitude_deg"
