@@ -1,15 +1,28 @@
 class AirportsController < ApplicationController
+  require 'csv'
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
 
   # GET /airports
   # GET /airports.json
   def index
-    @airports = Airport.all
+    @airports = Airport.paginate(:page => params[:page], :per_page => 30)
+    
+    respond_to do |format|
+      format.html {  }
+      format.csv { send_data @airports.to_csv }
+    end
   end
 
   # GET /airports/1
   # GET /airports/1.json
   def show
+    lat = @airport.latitude_deg
+    lng = @airport.longitude_deg
+    
+    @map_markers = Gmaps4rails.build_markers(@airport) do |airport,marker|
+       marker.lat lat
+       marker.lng lng
+    end
   end
 
   # GET /airports/new

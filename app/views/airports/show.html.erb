@@ -1,89 +1,17 @@
+
+<h1><%= @airport.name %></h1>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Ident:</strong>
-  <%= @airport.ident %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @airport.airport_type %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @airport.name %>
-</p>
-
-<p>
-  <strong>Latitude deg:</strong>
-  <%= @airport.latitude_deg %>
-</p>
-
-<p>
-  <strong>Longitude deg:</strong>
-  <%= @airport.longitude_deg %>
-</p>
-
-<p>
-  <strong>Elevation ft:</strong>
-  <%= @airport.elevation_ft %>
-</p>
-
-<p>
-  <strong>Continent:</strong>
-  <%= @airport.continent %>
-</p>
-
-<p>
-  <strong>Iso country:</strong>
-  <%= @airport.iso_country %>
-</p>
-
-<p>
-  <strong>Iso region:</strong>
-  <%= @airport.iso_region %>
-</p>
-
-<p>
-  <strong>Municipality:</strong>
-  <%= @airport.municipality %>
-</p>
-
-<p>
-  <strong>Scheduled service:</strong>
-  <%= @airport.scheduled_service %>
-</p>
-
-<p>
-  <strong>Gps code:</strong>
-  <%= @airport.gps_code %>
-</p>
-
-<p>
-  <strong>Iata code:</strong>
-  <%= @airport.iata_code %>
-</p>
-
-<p>
-  <strong>Local code:</strong>
-  <%= @airport.local_code %>
-</p>
-
-<p>
-  <strong>Home link:</strong>
-  <%= @airport.home_link %>
-</p>
-
-<p>
-  <strong>Wikipedia link:</strong>
-  <%= @airport.wikipedia_link %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= @airport.keywords %>
-</p>
-
+<div>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
 <%= link_to 'Edit', edit_airport_path(@airport) %> |
 <%= link_to 'Back', airports_path %>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @map_markers.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
