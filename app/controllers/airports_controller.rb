@@ -23,6 +23,7 @@ class AirportsController < ApplicationController
        marker.lat lat
        marker.lng lng
     end
+
   end
 
   # GET /airports/new

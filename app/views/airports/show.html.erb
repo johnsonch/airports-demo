@@ -1,8 +1,10 @@
-
 <h1><%= @airport.name %></h1>
 <p id="notice"><%= notice %></p>
-<div>
+<div class="row">
+<div class="col-md-9">
   <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
 </div>
 <%= link_to 'Edit', edit_airport_path(@airport) %> |
 <%= link_to 'Back', airports_path %>
