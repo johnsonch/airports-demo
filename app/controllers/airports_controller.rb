@@ -1,5 +1,6 @@
 class AirportsController < ApplicationController
   require 'csv'
+  require 'crack/json'
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
 
   # GET /airports
@@ -23,7 +24,8 @@ class AirportsController < ApplicationController
        marker.lat lat
        marker.lng lng
     end
-
+      response = RestClient.get "http://api.openweathermap.org/data/2.5/weather", :params => {:lat => lat, :lon => lng}
+     @weather = Crack::JSON.parse(response.body) 
   end
 
   # GET /airports/new

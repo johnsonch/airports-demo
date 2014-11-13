@@ -5,6 +5,21 @@
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
+<div class="col-md-3">
+  <h3>Weather</h3>
+  Wind
+  <ul>
+    <li>Wind speed: <%= @weather["wind"]["speed"] %> MPH</li>
+    <li>Wind direction: <%= compass_point(@weather["wind"]["deg"]) %></li>
+  </ul>
+  Temperature
+  <ul>
+    <li>Current: <%= kelvin_to_fahrenheit(@weather["main"]["temp"]) %>&deg;F</li>
+    <li>Low: <%= kelvin_to_fahrenheit(@weather["main"]["temp_min"]) %>&deg;F</li>
+    <li>High: <%= kelvin_to_fahrenheit(@weather["main"]["temp_max"]) %>&deg;F</li>
+  </ul>
+</div>
+
 </div>
 <%= link_to 'Edit', edit_airport_path(@airport) %> |
 <%= link_to 'Back', airports_path %>
@@ -17,3 +32,6 @@
   handler.fitMapToBounds();
 });
 </script>
+
+
+
