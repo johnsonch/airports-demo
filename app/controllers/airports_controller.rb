@@ -11,6 +11,7 @@ class AirportsController < ApplicationController
     respond_to do |format|
       format.html {  }
       format.csv { send_data @airports.to_csv }
+      format.json { render json: @airports }
     end
   end
 

@@ -10,6 +10,7 @@ gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'rest-client'
 gem 'crack'
+gem 'rails-assets-mustache'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

@@ -5,9 +5,9 @@
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
-<div class="col-md-3">
-  <h3>Weather</h3>
-  Wind
+<div class="col-md-3" id="weather-data">
+ <h3>Weather</h3>
+  <!-- Wind
   <ul>
     <li>Wind speed: <%= @weather["wind"]["speed"] %> MPH</li>
     <li>Wind direction: <%= compass_point(@weather["wind"]["deg"]) %></li>
@@ -17,7 +17,8 @@
     <li>Current: <%= kelvin_to_fahrenheit(@weather["main"]["temp"]) %>&deg;F</li>
     <li>Low: <%= kelvin_to_fahrenheit(@weather["main"]["temp_min"]) %>&deg;F</li>
     <li>High: <%= kelvin_to_fahrenheit(@weather["main"]["temp_max"]) %>&deg;F</li>
-  </ul>
+  </ul> -->
+<%= image_tag("loader.gif", :id => 'next_page_spinner') %>
 </div>
 
 </div>
@@ -30,8 +31,9 @@
   markers = handler.addMarkers(<%=raw @map_markers.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
-});
+  });
 </script>
-
-
-
+<script>
+  var url =<%=raw "'http://api.openweathermap.org/data/2.5/weather?lat=#{@airport.latitude_deg}&lon=#{@airport.longitude_deg};'" %>
+  window.getWeather(url);
+</script>
