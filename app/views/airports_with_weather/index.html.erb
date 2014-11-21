@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Current Temp</th>
+  </tr>
+  <% @airports_with_weather.each do |airport| %>
+    <tr>
+      <td><%=airport[:name] %></td>
+      <td><%=airport[:current_weather] %></td>
+  <% end %>
+</table>

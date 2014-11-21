@@ -1,4 +1,5 @@
 Airports::Application.routes.draw do
+  get "airports_with_weather/index"
   resources :airports
 
   # The priority is based upon order of creation: first created -> highest priority.

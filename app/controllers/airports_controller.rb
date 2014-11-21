@@ -11,6 +11,7 @@ class AirportsController < ApplicationController
     respond_to do |format|
       format.html {  }
       format.csv { send_data @airports.to_csv }
+      format.json { render json: @airports }
     end
   end
 
@@ -24,8 +25,6 @@ class AirportsController < ApplicationController
        marker.lat lat
        marker.lng lng
     end
-      response = RestClient.get "http://api.openweathermap.org/data/2.5/weather", :params => {:lat => lat, :lon => lng}
-     @weather = Crack::JSON.parse(response.body) 
   end
 
   # GET /airports/new

@@ -3,37 +3,26 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Type</th>
       <th>Name</th>
+      <th>Type</th>
       <th>Continent</th>
       <th>Iso country</th>
       <th>Iso region</th>
       <th>Municipality</th>
       <th>Scheduled service</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @airports.each do |airport| %>
-      <tr>
-        <td><%= airport.airport_type %></td>
-        <td><%= airport.name %></td>
-        <td><%= airport.continent %></td>
-        <td><%= airport.iso_country %></td>
-        <td><%= airport.iso_region %></td>
-        <td><%= airport.municipality %></td>
-        <td><%= airport.scheduled_service %></td>
-        <td><%= link_to 'Show', airport %></td>
-        <td><%= link_to 'Edit', edit_airport_path(airport) %></td>
-        <td><%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id='airports'>
   </tbody>
 </table>
-<%= will_paginate @airports %>
-<br>
 
-<%= link_to 'New Airport', new_airport_path %>
+<div class="col-lg-4">
+</div>
+
+<div class="col-lg-4">
+  <%= image_tag("loader.gif", :id => 'next_page_spinner') %>
+</div>
+
+<div class="col-lg-4">
+</div>
