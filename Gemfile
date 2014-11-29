@@ -12,6 +12,11 @@ gem 'rest-client'
 gem 'crack'
 gem 'rails-assets-mustache'
 
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+end
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
