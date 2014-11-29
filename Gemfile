@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-ruby '2.1.1'
+ruby '2.0.0'
 
 gem 'rails-assets-underscore'
 gem 'rails', '4.0.8'
@@ -12,10 +12,9 @@ gem 'rest-client'
 gem 'crack'
 gem 'rails-assets-mustache'
 
-group :development do
   gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'capistrano-rbenv', '~> 2.0', require: false
-end
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
