@@ -4,7 +4,7 @@ source 'https://rails-assets.org'
 ruby '2.0.0'
 
 gem 'rails-assets-underscore'
-gem 'rails', '4.0.8'
+gem 'rails', '5.2.8.1'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
